@@ -4,7 +4,7 @@ import { ContactList } from '../../components/ContactList/ContactList';
 
 export const Contacts = () => (
   <>
-    <h2>Contacts</h2>
+    <h1>Contacts</h1>
     <ContactForm />
     <Filter />
     <ContactList />
