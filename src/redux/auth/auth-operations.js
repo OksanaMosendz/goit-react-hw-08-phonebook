@@ -20,3 +20,13 @@ export const loginUser = userParams => async dispatch => {
     dispatch(authActions.loginUserError(error));
   }
 };
+
+export const logoutUser = () => async dispatch => {
+  dispatch(authActions.logoutUserRequest());
+  try {
+    await authAPI.logoutUser();
+    dispatch(authActions.logoutUserSuccess());
+  } catch (error) {
+    dispatch(authActions.logoutUserError(error));
+  }
+};

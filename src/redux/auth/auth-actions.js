@@ -6,3 +6,7 @@ export const registerUserError = createAction('auth/registerUserError');
 export const loginUserRequest = createAction('auth/loginUserRequest');
 export const loginUserSuccess = createAction('auth/loginUserSuccess');
 export const loginUserError = createAction('auth/loginUserError');
+
+export const logoutUserRequest = createAction('auth/logoutUserRequest');
+export const logoutUserSuccess = createAction('auth/logoutUserSuccess');
+export const logoutUserError = createAction('auth/logoutUserError');

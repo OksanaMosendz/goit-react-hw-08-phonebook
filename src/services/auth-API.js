@@ -26,16 +26,11 @@ export async function loginUser(user) {
   return data;
 }
 
-// export async function logoutUser(userToken) {
-//   const response = await fetch(`${BASE_URL}/users/logout`, {
-//     method: 'POST',
-//     headers: {
-//       //   'Content-Type': 'application/json',
-//       Authorization: userToken,
-//     },
-//     //     body: JSON.stringify(userToken),
-//     //   });
-//     //   const data = await response.json();
-//     //   return data;
-//   });
-// }
+export async function logoutUser() {
+  await fetch(`${BASE_URL}/users/logout`, {
+    method: 'POST',
+    headers: {
+      Authorization: '',
+    },
+  });
+}
