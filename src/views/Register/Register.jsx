@@ -1,11 +1,13 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { registerUser } from '../../redux/auth/auth-operations';
+import { getIsLoggedIn } from '../../redux/auth/auth-selectors';
 
 export const Register = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const isLoggedIn = useSelector(getIsLoggedIn);
   const dispatch = useDispatch();
 
   const onHandleChange = e => {
@@ -30,42 +32,44 @@ export const Register = () => {
   };
 
   return (
-    <div>
-      <h1>Registration</h1>
+    !isLoggedIn && (
+      <div>
+        <h1>Registration</h1>
 
-      <form autoComplete="off" onSubmit={onHandleSubmit}>
-        <label>
-          Name
-          <input
-            type="text"
-            name="name"
-            value={name}
-            onChange={onHandleChange}
-          />
-        </label>
+        <form autoComplete="off" onSubmit={onHandleSubmit}>
+          <label>
+            Name
+            <input
+              type="text"
+              name="name"
+              value={name}
+              onChange={onHandleChange}
+            />
+          </label>
 
-        <label>
-          E-mail
-          <input
-            type="email"
-            name="email"
-            value={email}
-            onChange={onHandleChange}
-          />
-        </label>
+          <label>
+            E-mail
+            <input
+              type="email"
+              name="email"
+              value={email}
+              onChange={onHandleChange}
+            />
+          </label>
 
-        <label>
-          Password
-          <input
-            type="password"
-            name="password"
-            value={password}
-            onChange={onHandleChange}
-          />
-        </label>
+          <label>
+            Password
+            <input
+              type="password"
+              name="password"
+              value={password}
+              onChange={onHandleChange}
+            />
+          </label>
 
-        <button type="submit">Register</button>
-      </form>
-    </div>
+          <button type="submit">Register</button>
+        </form>
+      </div>
+    )
   );
 };

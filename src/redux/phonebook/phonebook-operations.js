@@ -1,20 +1,20 @@
 import * as phonebookAPI from '../../services/phonebook-API';
 import * as phonebookActions from './phonebook-actions';
 
-export const fetchContacts = () => async dispatch => {
+export const fetchContacts = token => async dispatch => {
   dispatch(phonebookActions.fetchContactsRequest());
   try {
-    const entities = await phonebookAPI.fetchContacts();
+    const entities = await phonebookAPI.fetchContacts(token);
     dispatch(phonebookActions.fetchContactsSuccess(entities));
   } catch (error) {
     dispatch(phonebookActions.fetchContactsError(error));
   }
 };
 
-export const addContact = contact => async dispatch => {
+export const addContact = (contact, token) => async dispatch => {
   dispatch(phonebookActions.addContactRequest());
   try {
-    const response = await phonebookAPI.addContact(contact);
+    const response = await phonebookAPI.addContact(contact, token);
     dispatch(phonebookActions.addContactSuccess(response));
   } catch (error) {
     dispatch(phonebookActions.addContactError(error));

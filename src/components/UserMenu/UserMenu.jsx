@@ -11,7 +11,7 @@ export const UserMenu = () => {
     <>
       <p>{email}</p>
       <button type="button" onClick={() => dispatch(logoutUser(token))}>
-        Выйти
+        Log off
       </button>
     </>
   );

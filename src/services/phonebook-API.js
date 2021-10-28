@@ -1,22 +1,24 @@
-const BASE_URL = 'http://localhost:7777';
+const BASE_URL = 'https://connections-api.herokuapp.com';
 
-export async function fetchContacts() {
+export async function fetchContacts(token) {
   const response = await fetch(`${BASE_URL}/contacts`, {
     method: 'GET',
     headers: {
-      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
     },
   });
 
   const data = await response.json();
+  console.log(data);
   return data;
 }
 
-export async function addContact(contact) {
+export async function addContact(contact, token) {
   const response = await fetch(`${BASE_URL}/contacts`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
     },
     body: JSON.stringify(contact),
   });

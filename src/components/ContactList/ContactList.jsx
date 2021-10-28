@@ -6,11 +6,14 @@ import {
   deleteContact,
 } from '../../redux/phonebook/phonebook-operations';
 import { useEffect } from 'react';
+import { getUserToken } from '../../redux/auth/auth-selectors';
 
 export const ContactList = () => {
   const filteredContacts = useSelector(getFilteredContacts);
+  const token = useSelector(getUserToken);
   const dispatch = useDispatch();
-  useEffect(() => dispatch(fetchContacts()), [dispatch]);
+
+  useEffect(() => dispatch(fetchContacts(token)), [token, dispatch]);
 
   return (
     filteredContacts.length > 0 && (

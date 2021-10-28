@@ -3,11 +3,13 @@ import { Form, Label } from './ContactForm.styled';
 import { useSelector, useDispatch } from 'react-redux';
 import { getItems } from '../../redux/phonebook/phonebook-selectors';
 import { addContact } from '../../redux/phonebook/phonebook-operations';
+import { getUserToken } from '../../redux/auth/auth-selectors';
 
 export const ContactForm = () => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
   const items = useSelector(getItems);
+  const token = useSelector(getUserToken);
   const dispatch = useDispatch();
 
   const isInList =
@@ -19,7 +21,7 @@ export const ContactForm = () => {
     e.preventDefault();
     isInList
       ? alert(name + ' is already in contacts.')
-      : dispatch(addContact({ name, number }), [dispatch]);
+      : dispatch(addContact({ name, number }, token), [dispatch]);
     setName('');
     setNumber('');
   };
