@@ -26,11 +26,11 @@ export async function loginUser(user) {
   return data;
 }
 
-export async function logoutUser() {
+export async function logoutUser(token) {
   await fetch(`${BASE_URL}/users/logout`, {
     method: 'POST',
     headers: {
-      Authorization: '',
+      Authorization: `Bearer ${token}`,
     },
   });
 }

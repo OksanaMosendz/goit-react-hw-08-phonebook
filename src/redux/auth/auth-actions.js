@@ -1,3 +1,4 @@
+
 import { createAction } from '@reduxjs/toolkit';
 export const registerUserRequest = createAction('auth/registerUserRequest');
 export const registerUserSuccess = createAction('auth/registerUserSuccess');

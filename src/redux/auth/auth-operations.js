@@ -21,11 +21,11 @@ export const loginUser = userParams => async dispatch => {
   }
 };
 
-export const logoutUser = () => async dispatch => {
+export const logoutUser = token => async dispatch => {
   dispatch(authActions.logoutUserRequest());
   try {
-    await authAPI.logoutUser();
-    dispatch(authActions.logoutUserSuccess());
+    await authAPI.logoutUser(token);
+    await dispatch(authActions.logoutUserSuccess());
   } catch (error) {
     dispatch(authActions.logoutUserError(error));
   }
