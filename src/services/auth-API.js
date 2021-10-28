@@ -34,3 +34,14 @@ export async function logoutUser(token) {
     },
   });
 }
+export async function fetchUser(token) {
+  const response = await fetch(`${BASE_URL}/users/current`, {
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  const data = await response.json();
+  console.log(data);
+  return data;
+}

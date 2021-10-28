@@ -30,3 +30,13 @@ export const logoutUser = token => async dispatch => {
     dispatch(authActions.logoutUserError(error));
   }
 };
+
+export const fetchUser = token => async dispatch => {
+  dispatch(authActions.fetchUserRequest());
+  try {
+    const data = await authAPI.fetchUser(token);
+    dispatch(authActions.fetchUserSuccess(data));
+  } catch (error) {
+    dispatch(authActions.fetchUserError(error));
+  }
+};

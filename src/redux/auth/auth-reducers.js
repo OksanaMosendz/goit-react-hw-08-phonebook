@@ -10,6 +10,9 @@ import {
   logoutUserRequest,
   logoutUserSuccess,
   logoutUserError,
+  fetchUserRequest,
+  fetchUserSuccess,
+  fetchUserError,
 } from './auth-actions';
 
 const user = createReducer(
@@ -18,6 +21,7 @@ const user = createReducer(
     [registerUserSuccess]: (_, { payload }) => payload.user,
     [loginUserSuccess]: (_, { payload }) => payload.user,
     [logoutUserSuccess]: () => ({ name: null, email: null }),
+    [fetchUserSuccess]: (_, { payload }) => payload,
   },
 );
 
@@ -37,6 +41,9 @@ const isLoggedIn = createReducer(false, {
   [logoutUserRequest]: () => true,
   [logoutUserSuccess]: () => false,
   [logoutUserError]: () => true,
+  [fetchUserRequest]: () => false,
+  [fetchUserSuccess]: () => true,
+  [fetchUserError]: () => false,
 });
 
 const authError = createReducer(null, {
@@ -49,6 +56,9 @@ const authError = createReducer(null, {
   [logoutUserRequest]: () => null,
   [logoutUserSuccess]: () => null,
   [logoutUserError]: (_, { payload }) => payload,
+  [fetchUserRequest]: () => null,
+  [fetchUserSuccess]: () => null,
+  [fetchUserError]: (_, { payload }) => payload,
 });
 
 export const authReducer = combineReducers({
