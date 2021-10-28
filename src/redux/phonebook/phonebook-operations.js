@@ -21,10 +21,10 @@ export const addContact = (contact, token) => async dispatch => {
   }
 };
 
-export const deleteContact = id => async dispatch => {
+export const deleteContact = (id, token) => async dispatch => {
   dispatch(phonebookActions.deleteContactRequest());
   try {
-    await phonebookAPI.deleteContact(id);
+    await phonebookAPI.deleteContact(id, token);
     dispatch(phonebookActions.deleteContactSuccess(id));
   } catch (error) {
     dispatch(phonebookActions.deleteContactError(error));

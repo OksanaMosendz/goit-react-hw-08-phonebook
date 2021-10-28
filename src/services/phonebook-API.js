@@ -27,11 +27,12 @@ export async function addContact(contact, token) {
   return data;
 }
 
-export async function deleteContact(id) {
+export async function deleteContact(id, token) {
   await fetch(`${BASE_URL}/contacts/${id}`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
     },
   });
 }

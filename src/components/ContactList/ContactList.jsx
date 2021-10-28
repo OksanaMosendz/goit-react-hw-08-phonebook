@@ -26,7 +26,9 @@ export const ContactList = () => {
             <Button
               id={contact.id}
               type="button"
-              onClick={e => dispatch(deleteContact(e.target.id), [dispatch])}
+              onClick={e =>
+                dispatch(deleteContact(e.target.id, token), [dispatch])
+              }
             >
               Delete
             </Button>
