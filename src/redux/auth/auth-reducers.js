@@ -61,9 +61,16 @@ const authError = createReducer(null, {
   [fetchUserError]: (_, { payload }) => payload,
 });
 
+const isFetchingCurrentUser = createReducer(false, {
+  [fetchUserRequest]: () => true,
+  [fetchUserSuccess]: () => false,
+  [fetchUserSuccess]: () => false,
+});
+
 export const authReducer = combineReducers({
   user,
   token,
   isLoggedIn,
   authError,
+  isFetchingCurrentUser,
 });
