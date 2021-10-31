@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginUser } from '../../redux/auth/auth-operations';
 import { getIsLoggedIn } from '../../redux/auth/auth-selectors';
+import { Button } from 'react-bootstrap';
 
 export const Login = () => {
   const [email, setEmail] = useState('');
@@ -53,7 +54,7 @@ export const Login = () => {
             />
           </label>
 
-          <button type="submit">Log in</button>
+          <Button variant="outline-primary">Log in</Button>
         </form>
       </div>
     )
