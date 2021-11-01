@@ -27,7 +27,7 @@ export const ContactForm = () => {
   };
 
   return (
-    <Form onSubmit={formSubmit}>
+    <Form onSubmit={formSubmit} className="w-50 justify-content-center ">
       <Form.Group className="mb-3">
         <Form.Label>Name</Form.Label>
         <Form.Control
@@ -54,7 +54,11 @@ export const ContactForm = () => {
         />
       </Form.Group>
 
-      <Button variant="primary" type="submit">
+      <Button
+        className="d-inline-flex justify-self-center"
+        variant="primary"
+        type="submit"
+      >
         Add contact
       </Button>
     </Form>

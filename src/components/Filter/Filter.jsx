@@ -1,16 +1,16 @@
-import { Label } from './Filter.styled';
 import { useSelector, useDispatch } from 'react-redux';
 import * as actions from '../../redux/phonebook/phonebook-actions';
 import { getFilter } from '../../redux/phonebook/phonebook-selectors.js';
+import { Form } from 'react-bootstrap';
 
 export const Filter = () => {
   const dispatch = useDispatch();
   const filter = useSelector(getFilter);
 
   return (
-    <Label>
-      Find contacts by name
-      <input
+    <Form.Group className="mb-3 mt-3 w-50">
+      <Form.Label> Find contacts by name</Form.Label>
+      <Form.Control
         type="text"
         value={filter}
         onChange={e => dispatch(actions.filterContacts(e.target.value))}
@@ -18,6 +18,6 @@ export const Filter = () => {
         title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
         required
       />
-    </Label>
+    </Form.Group>
   );
 };
