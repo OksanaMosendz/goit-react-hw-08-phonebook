@@ -13,6 +13,7 @@ import {
 } from './redux/auth/auth-selectors';
 import { PrivateRoute } from './components/PrivateRoute';
 import { PublicRoute } from './components/PublicRoute';
+import Container from 'react-bootstrap/Container';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -28,26 +29,26 @@ export const App = () => {
   return (
     !isFetchingCurrentUser && (
       <>
-        {/* {/* // <Container> */}
-        <AppBar />
-        <Switch>
-          <PublicRoute exact path="/">
-            <Home />
-          </PublicRoute>
+        <Container>
+          <AppBar />
+          <Switch>
+            <PublicRoute exact path="/">
+              <Home />
+            </PublicRoute>
 
-          <PublicRoute path="/register" restricted>
-            <Register />
-          </PublicRoute>
+            <PublicRoute path="/register" restricted>
+              <Register />
+            </PublicRoute>
 
-          <PublicRoute path="/login" restricted>
-            <Login />
-          </PublicRoute>
+            <PublicRoute path="/login" restricted>
+              <Login />
+            </PublicRoute>
 
-          <PrivateRoute path="/contacts">
-            <Contacts />
-          </PrivateRoute>
-        </Switch>
-        {/* / </Container> */}
+            <PrivateRoute path="/contacts">
+              <Contacts />
+            </PrivateRoute>
+          </Switch>
+        </Container>
       </>
     )
   );

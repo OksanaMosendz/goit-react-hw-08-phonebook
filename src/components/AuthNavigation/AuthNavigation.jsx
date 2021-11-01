@@ -1,20 +1,16 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Nav } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
 
 export const AuthNavigation = () => {
   return (
-    <ul>
-      <li>
-        <NavLink to="/register" exact>
-          Registration
-        </NavLink>
-      </li>
-
-      <li>
-        <NavLink to="/login" exact>
-          Login
-        </NavLink>
-      </li>
-    </ul>
+    <>
+      <LinkContainer to="/register" exact>
+        <Nav.Link>Registration</Nav.Link>
+      </LinkContainer>
+      <LinkContainer to="/login" exact>
+        <Nav.Link>Login</Nav.Link>
+      </LinkContainer>
+    </>
   );
 };
