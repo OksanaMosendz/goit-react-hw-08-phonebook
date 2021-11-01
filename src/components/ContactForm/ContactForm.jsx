@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Form, Label } from './ContactForm.styled';
+import { Button, Form } from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
 import { getItems } from '../../redux/phonebook/phonebook-selectors';
 import { addContact } from '../../redux/phonebook/phonebook-operations';
@@ -28,9 +28,9 @@ export const ContactForm = () => {
 
   return (
     <Form onSubmit={formSubmit}>
-      <Label>
-        Name
-        <input
+      <Form.Group className="mb-3">
+        <Form.Label>Name</Form.Label>
+        <Form.Control
           type="text"
           name="name"
           value={name}
@@ -39,11 +39,11 @@ export const ContactForm = () => {
           title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
           required
         />
-      </Label>
+      </Form.Group>
 
-      <Label>
-        Number
-        <input
+      <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Label>Password</Form.Label>
+        <Form.Control
           type="tel"
           name="number"
           value={number}
@@ -52,8 +52,11 @@ export const ContactForm = () => {
           title="Номер телефона должен состоять цифр и может содержать пробелы, тире, круглые скобки и может начинаться с +"
           required
         />
-      </Label>
-      <button type="submit">Add contact</button>
+      </Form.Group>
+
+      <Button variant="primary" type="submit">
+        Add contact
+      </Button>
     </Form>
   );
 };
