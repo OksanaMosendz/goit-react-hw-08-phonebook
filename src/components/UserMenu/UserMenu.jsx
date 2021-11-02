@@ -2,7 +2,6 @@ import { useDispatch } from 'react-redux';
 import { logoutUser } from '../../redux/auth/auth-operations';
 import { getUserEmail, getUserToken } from '../../redux/auth/auth-selectors';
 import { useSelector } from 'react-redux';
-import { Div, P } from './UserMenu.styled';
 import { Button } from 'react-bootstrap';
 
 export const UserMenu = () => {
@@ -10,8 +9,8 @@ export const UserMenu = () => {
   const email = useSelector(getUserEmail);
   const token = useSelector(getUserToken);
   return (
-    <Div>
-      <P>{email}</P>
+    <div className="d-flex align-items-center">
+      <p className=" m-0 me-2">{email}</p>
       <Button
         variant="outline-primary"
         type="button"
@@ -19,6 +18,6 @@ export const UserMenu = () => {
       >
         Log off
       </Button>
-    </Div>
+    </div>
   );
 };

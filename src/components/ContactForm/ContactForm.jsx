@@ -27,8 +27,8 @@ export const ContactForm = () => {
   };
 
   return (
-    <Form onSubmit={formSubmit} className="w-50 justify-content-center ">
-      <Form.Group className="mb-3">
+    <Form onSubmit={formSubmit} className="w-50 text-center">
+      <Form.Group className="mb-3 text-start ">
         <Form.Label>Name</Form.Label>
         <Form.Control
           type="text"
@@ -41,8 +41,8 @@ export const ContactForm = () => {
         />
       </Form.Group>
 
-      <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label>Password</Form.Label>
+      <Form.Group className="mb-3 text-start " controlId="formBasicPassword">
+        <Form.Label>Number</Form.Label>
         <Form.Control
           type="tel"
           name="number"
@@ -54,11 +54,7 @@ export const ContactForm = () => {
         />
       </Form.Group>
 
-      <Button
-        className="d-inline-flex justify-self-center"
-        variant="primary"
-        type="submit"
-      >
+      <Button className="d-inline-flex" variant="primary" type="submit">
         Add contact
       </Button>
     </Form>

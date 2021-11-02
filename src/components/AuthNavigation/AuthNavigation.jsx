@@ -9,7 +9,7 @@ export const AuthNavigation = () => {
         <Nav.Link>Registration</Nav.Link>
       </LinkContainer>
       <LinkContainer to="/login" exact>
-        <Nav.Link>Login</Nav.Link>
+        <Nav.Link>Log in</Nav.Link>
       </LinkContainer>
     </>
   );

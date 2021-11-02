@@ -30,11 +30,11 @@ export const Login = () => {
 
   return (
     !isLoggedIn && (
-      <Container>
+      <Container className=" d-flex flex-column align-items-center">
         <h1>Login</h1>
 
-        <Form onSubmit={onHandleSubmit}>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form onSubmit={onHandleSubmit} className="w-50 text-center">
+          <Form.Group className="mb-3 text-start" controlId="formBasicEmail">
             <Form.Label>Email</Form.Label>
             <Form.Control
               type="email"
@@ -45,7 +45,7 @@ export const Login = () => {
             />
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Group className="mb-3 text-start" controlId="formBasicPassword">
             <Form.Label>Password</Form.Label>
             <Form.Control
               type="password"
@@ -57,7 +57,7 @@ export const Login = () => {
           </Form.Group>
 
           <Button variant="primary" type="submit">
-            <Button variant="primary">Log in</Button>
+            Log in
           </Button>
         </Form>
       </Container>
